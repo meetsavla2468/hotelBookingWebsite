@@ -46,7 +46,7 @@ const Register = () => {
         <label className="text-gray-700 text-sm font-bold flex-1">
           First Name
           <input
-            className="border rounded w-full py-1 px-2 font-normal"
+            className="border rounded w-full py-1 px-2 text-xl"
             {...register("firstName", { required: "This field is required" })}
           ></input>
           {errors.firstName && (
@@ -56,7 +56,7 @@ const Register = () => {
         <label className="text-gray-700 text-sm font-bold flex-1">
           Last Name
           <input
-            className="border rounded w-full py-1 px-2 font-normal"
+            className="border rounded w-full py-1 px-2  text-xl"
             {...register("lastName", { required: "This field is required" })}
           ></input>
           {errors.lastName && (
@@ -68,7 +68,7 @@ const Register = () => {
         Email
         <input
           type="email"
-          className="border rounded w-full py-1 px-2 font-normal"
+          className="border rounded w-full py-1 px-2  text-xl"
           {...register("email", { required: "This field is required" })}
         ></input>
         {errors.email && (
@@ -79,7 +79,7 @@ const Register = () => {
         Password
         <input
           type="password"
-          className="border rounded w-full py-1 px-2 font-normal"
+          className="border rounded w-full py-1 px-2  text-xl"
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -96,7 +96,7 @@ const Register = () => {
         Confirm Password
         <input
           type="password"
-          className="border rounded w-full py-1 px-2 font-normal"
+          className="border rounded w-full py-1 px-2  text-xl"
           {...register("confirmPassword", {
             validate: (val) => {
               if (!val) {
@@ -114,9 +114,9 @@ const Register = () => {
       <span>
         <button
           type="submit"
-          className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl"
+          className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl rounded-lg"
         >
-          Create Account
+          Sign Up
         </button>
       </span>
     </form>

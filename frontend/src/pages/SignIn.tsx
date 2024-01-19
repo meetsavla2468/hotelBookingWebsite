@@ -38,24 +38,22 @@ const SignIn = () => {
   });
 
   return (
+      <div className="p-5 max-w-lg mx-auto">
+      <h2 className="text-5xl font-bold text-center mb-10">Sign In</h2>
     <form className="flex flex-col gap-5" onSubmit={onSubmit}>
-      <h2 className="text-3xl font-bold">Sign In</h2>
-      <label className="text-gray-700 text-sm font-bold flex-1">
-        Email
         <input
           type="email"
-          className="border rounded w-full py-1 px-2 font-normal"
+          placeholder="email"
+          className="border border-black rounded-lg p-3"
           {...register("email", { required: "This field is required" })}
-        ></input>
+          ></input>
         {errors.email && (
           <span className="text-red-500">{errors.email.message}</span>
-        )}
-      </label>
-      <label className="text-gray-700 text-sm font-bold flex-1">
-        Password
+          )}
         <input
           type="password"
-          className="border rounded w-full py-1 px-2 font-normal"
+          placeholder="password"
+          className="border border-black rounded-lg p-3"
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -63,26 +61,27 @@ const SignIn = () => {
               message: "Password must be at least 6 characters",
             },
           })}
-        ></input>
+          ></input>
         {errors.password && (
           <span className="text-red-500">{errors.password.message}</span>
-        )}
-      </label>
-      <span className="flex items-center justify-between">
-        <span className="text-sm">
-          Not Registered?{" "}
-          <Link className="underline" to="/register">
-            Create an account here
-          </Link>
-        </span>
+          )}
         <button
           type="submit"
-          className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl"
-        >
+          className="bg-blue-600 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+          >
           Login
         </button>
+      <span className="flex gap-2 mt-5">
+        <span className="text-sm">
+          Dont have an account?{" "}
+          <Link className="text-blue-700" to="/register">
+            Sign Up
+          </Link>
+        </span>
+        
       </span>
     </form>
+        </div>
   );
 };
 

@@ -100,14 +100,29 @@ router.post(
 
     const totalCost = hotel.pricePerNight * numberOfNights;
 
+    const customerCreation = await stripe.customers.create({
+      name: "Jenny Rosen",
+      address: {
+      line1:"510 Townsend St",
+      postal_code: "98140",
+      city:"San Francisco",
+      state:"CA",
+      country:"US",
+      }
+    });
+
     const paymentIntent = await stripe.paymentIntents.create({
       amount: totalCost * 100,
-      currency: "gbp",
+      currency: "inr",
       metadata: {
         hotelId,
         userId: req.userId,
       },
+      description: "Software development services",
+      customer: customerCreation.id,
     });
+
+    
 
     if (!paymentIntent.client_secret) {
       return res.status(500).json({ message: "Error creating payment intent" });
